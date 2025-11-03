@@ -1,26 +1,22 @@
 variable "aws_region" {
-  type    = string
-  default = "us-east-1" # change if you want
+  type        = string
+  default     = "us-east-1"
+  description = "AWS region for deployment"
 }
 
 variable "instance_type" {
-  type    = string
-  default = "t3.micro"
+  type        = string
+  default     = "t3.micro"
+  description = "Instance type for EC2 instances"
 }
 
 variable "key_name" {
   type        = string
-  description = "Existing AWS key pair name to use for SSH"
-}
-
-variable "public_key_path" {
-  type        = string
-  default     = "key.pem"
-  description = "Optional path to a local public key to create a key pair. Leave empty if using existing key_name."
+  description = "Existing AWS key pair name for SSH access"
 }
 
 variable "allowed_cidr" {
   type        = string
   default     = "0.0.0.0/0"
-  description = "CIDR allowed to access Grafana (3000). Use a narrow CIDR in production."
+  description = "CIDR range allowed to access instances"
 }
